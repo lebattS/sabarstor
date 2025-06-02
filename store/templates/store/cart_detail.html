@@ -1,0 +1,52 @@
+{% extends 'store/../../../accounts/templates/base.html' %}
+{% block title %}سلة المشتريات{% endblock %}
+
+{% block content %}
+<h2>🛒 سلة المشتريات</h2>
+{% if cart %}
+<table class="table table-striped text-center">
+    <thead>
+        <tr>
+            <th>المنتج</th>
+            <th>الكمية</th>
+            <th>السعر</th>
+            <th>الإجمالي</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in cart %}
+        <tr>
+            <td>{{ item.product.name }}</td>
+            <td>
+                <form method="post" action="{% url 'increase_quantity' item.product.id %}" class="d-inline">
+                    {% csrf_token %}
+                    <button class="btn btn-sm btn-outline-success">+</button>
+                </form>
+                {{ item.quantity }}
+                <form method="post" action="{% url 'decrease_quantity' item.product.id %}" class="d-inline">
+                    {% csrf_token %}
+                    <button class="btn btn-sm btn-outline-warning">−</button>
+                </form>
+            </td>
+            <td>{{ item.price }}</td>
+            <td>
+                {{ item.total }}
+                <form method="post" action="{% url 'remove_from_cart' item.product.id %}" class="d-inline">
+                    {% csrf_token %}
+                    <button class="btn btn-sm btn-outline-danger">X</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td colspan="3"><strong>المجموع الكلي:</strong></td>
+            <td><strong>{{ cart.get_total_price }}</strong></td>
+        </tr>
+    </tbody>
+</table>
+<a href="{% url 'checkout' %}" class="btn btn-success">✅ إتمام الطلب</a>
+{% else %}
+<p>السلة فارغة.</p>
+{% endif %}
+<a href="{% url 'home' %}" class="btn btn-link">← متابعة التسوق</a>
+{% endblock %}

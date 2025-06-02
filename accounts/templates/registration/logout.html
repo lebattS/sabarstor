@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}تسجيل الخروج{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <div class="auth-card text-center">
+                <h2 class="text-success mb-4">👋 تم تسجيل الخروج بنجاح</h2>
+                <p class="mb-4">نأمل أن نراك قريبًا مرة أخرى!</p>
+                <a href="{% url 'login' %}" class="btn btn-main w-100">🔐 العودة إلى تسجيل الدخول</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-4">
+
+  <!-- الفئات -->
+  <h3 class="text-center mb-4">📦 الفئات</h3>
+  <div class="text-center mb-4">
+    {% for category in categories %}
+      {% if category.slug %}
+        <a href="{% url 'products_by_category' category.slug %}" class="btn btn-outline-primary m-1">
+          {{ category.name }}
+        </a>
+      {% endif %}
+    {% empty %}
+      <p>لا توجد فئات متاحة.</p>
+    {% endfor %}
+  </div>
+
+  <!-- المنتجات فقط عند اختيار فئة -->
+  {% if selected_category %}
+    <h3 class="text-center mb-4">🛍️ منتجات فئة "{{ selected_category.name }}"</h3>
+    <div class="row">
+      {% for product in products %}
+      <div class="col-md-4 mb-4">
+        <div class="card h-100">
+          <img src="{{ product.image.url }}" class="card-img-top" style="height: 200px; object-fit: cover;">
+          <div class="card-body">
+            <h5 class="card-title">
+              <a href="{% url 'product_detail' slug=product.slug %}" class="text-decoration-none">{{ product.name }}</a>
+            </h5>
+            <p class="text-muted">{{ product.category.name }}</p>
+           <p class="text-success fw-bold">{{ product.price }} أوقية</p>
+          </div>
+        </div>
+      </div>
+      {% empty %}
+        <p class="text-center">لا توجد منتجات متاحة في هذه الفئة.</p>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+</div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}إنشاء حساب جديد{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="auth-card">
+      <h3 class="text-center mb-4">إنشاء حساب جديد</h3>
+
+      <form method="post" novalidate>
+        {% csrf_token %}
+        {% for field in form %}
+          <div class="mb-3">
+            <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+            {{ field }}
+            {% if field.errors %}
+              <div class="text-danger small">{{ field.errors|striptags }}</div>
+            {% endif %}
+          </div>
+        {% endfor %}
+
+        <div class="d-grid">
+          <button type="submit" class="btn btn-main">سجّل الآن</button>
+        </div>
+      </form>
+
+      <div class="text-center mt-3">
+        <small>هل لديك حساب؟ <a href="{% url 'login' %}">تسجيل الدخول</a></small>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

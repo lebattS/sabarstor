@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="success-page">
+  <div class="success-card">
+    <h2 class="success-title">🎉 تم تأكيد الطلب بنجاح</h2>
+    <p class="order-number">رقم الطلب الخاص بك هو: <span>#{{ order_id }}</span></p>
+
+    <img src="{% static 'images/success_order.svg' %}" alt="Success Image" class="success-image">
+
+    <a href="{% url 'home' %}" class="btn-return">🏠 العودة إلى الصفحة الرئيسية</a>
+  </div>
+</div>
+{% endblock %}

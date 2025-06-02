@@ -1,0 +1,190 @@
+/* ===== الخط العام والتنسيق العام ===== */
+body {
+    font-family: 'Cairo', sans-serif;
+    background: linear-gradient(to right, #f6f9fc, #e0f7fa);
+    color: #212529;
+    direction: rtl;
+    text-align: right;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== الأزرار ===== */
+.btn-main {
+    background-color: #00bfa5;
+    border: none;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    border-radius: 8px;
+}
+
+.btn-main:hover {
+    background-color: #008e76;
+    color: white;
+}
+
+.btn-return {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    padding: 0.5rem 1.2rem;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.btn-return:hover {
+    background-color: #0056b3;
+}
+
+/* ===== البطاقات ===== */
+.card {
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-img-top {
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
+
+.card-title {
+    color: #009688;
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 0.95rem;
+    color: #555;
+}
+
+/* ===== نماذج المصادقة والتواصل ===== */
+.auth-card, .contact-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    margin-top: 60px;
+    width: 100%;
+    max-width: 480px;
+}
+
+/* ===== تنسيق الحقول ===== */
+.auth-card input,
+.contact-card input,
+.contact-card textarea {
+    font-size: 1.05rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+}
+
+/* ===== العناوين ===== */
+h3 {
+    color: #00bfa5;
+    font-weight: bold;
+    text-align: center;
+}
+
+.text-success {
+    color: #4caf50 !important;
+    font-weight: bold;
+}
+
+/* ===== الصور ===== */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ===== صفحة نجاح الطلب ===== */
+.success-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(to left, #2c3e50, #1abc9c);
+    padding: 2rem;
+}
+
+.success-card {
+    background-color: white;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+    animation: fadeInUp 0.7s ease-in-out;
+}
+
+.success-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #27ae60;
+    margin-bottom: 1.5rem;
+}
+
+.order-number {
+    font-size: 1.2rem;
+    color: #34495e;
+    margin-bottom: 1.5rem;
+}
+
+.order-number span {
+    font-weight: bold;
+    color: #007bff;
+    font-size: 1.5rem;
+}
+
+.success-image {
+    max-width: 150px;
+    margin: 1.5rem auto;
+}
+
+/* ===== فوتر ثابت ===== */
+footer {
+    background-color: #2c3e50;
+    color: white;
+    padding: 1rem;
+    margin-top: auto;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* ===== الحركة ===== */
+@keyframes fadeInUp {
+    from {
+        transform: translateY(40px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* ===== لتوسيط نموذج التواصل في الشاشة ===== */
+.contact-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1rem;
+}

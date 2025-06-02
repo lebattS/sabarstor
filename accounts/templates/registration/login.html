@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}تسجيل الدخول{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="auth-card">
+      <h3 class="text-center mb-4">تسجيل الدخول</h3>
+
+      <form method="post" novalidate>
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="id_username" class="form-label">اسم المستخدم</label>
+          <input type="text" name="username" class="form-control" id="id_username" placeholder="أدخل اسم المستخدم" required>
+        </div>
+        <div class="mb-3">
+          <label for="id_password" class="form-label">كلمة المرور</label>
+          <input type="password" name="password" class="form-control" id="id_password" placeholder="أدخل كلمة المرور" required>
+        </div>
+        <div class="d-grid">
+          <button type="submit" class="btn btn-main">دخول</button>
+        </div>
+      </form>
+
+      <div class="text-center mt-3">
+        <small>لا تملك حساباً؟ <a href="{% url 'register' %}">سجّل الآن</a></small>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

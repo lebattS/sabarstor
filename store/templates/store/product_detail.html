@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container py-5">
+
+  <div class="row justify-content-center">
+    <div class="col-md-10 col-lg-9 bg-light rounded-4 shadow p-4">
+
+      <div class="row">
+        <!-- الصورة -->
+        <div class="col-md-6 text-center mb-4 mb-md-0">
+          <img src="{{ product.image.url }}" class="img-fluid rounded" alt="{{ product.name }}" style="max-height: 400px;">
+        </div>
+
+        <!-- التفاصيل -->
+        <div class="col-md-6 d-flex flex-column justify-content-between">
+          <div>
+            <h3 class="fw-bold text-dark mb-3">{{ product.name }}</h3>
+            <p class="text-success fs-4 fw-semibold">{{ product.price }} أوقية</p>
+            <p class="text-muted">{{ product.description }}</p>
+          </div>
+
+          <div class="mt-4">
+            <form method="post" action="{% url 'add_to_cart' product.id %}">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-success btn-lg w-100 fw-bold shadow-sm">
+                🛒 أضف إلى السلة
+              </button>
+            </form>
+            <div class="mt-3 text-center">
+              <a href="{% url 'home' %}" class="text-decoration-none text-primary fw-semibold">
+                ← العودة للمنتجات
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+{% endblock %}

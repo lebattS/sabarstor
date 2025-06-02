@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}تواصل معنا{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-center align-items-center" style="min-height: 90vh;">
+  <div class="contact-card text-center">
+    <h3 class="mb-4 text-success">تواصل معنا</h3>
+
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-success">
+          {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
+
+    <form method="post">
+      {% csrf_token %}
+      <div class="mb-3 text-start">
+        <label class="form-label">الاسم</label>
+        {{ form.name }}
+      </div>
+      <div class="mb-3 text-start">
+        <label class="form-label">البريد الإلكتروني</label>
+        {{ form.email }}
+      </div>
+      <div class="mb-3 text-start">
+        <label class="form-label">الرسالة</label>
+        {{ form.message }}
+      </div>
+      <button type="submit" class="btn btn-main w-100">إرسال</button>
+    </form>
+  </div>
+</div>
+{% endblock %}
