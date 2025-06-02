@@ -7,7 +7,7 @@ WORKDIR /app
 # نسخ الملفات المطلوبة
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
-
+RUN pip install --upgrade pip
 # نسخ باقي ملفات المشروع
 COPY . .
 
@@ -24,3 +24,4 @@ EXPOSE 8000
 
 # الأمر الافتراضي لتشغيل الخادم
 CMD ["gunicorn", "sabarstor.wsgi:application", "--bind", "0.0.0.0:8000"]
+
