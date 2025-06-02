@@ -48,6 +48,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+ROOT_URLCONF = 'sabarstor.urls'
+
+
 # Templates
 TEMPLATES = [
     {
