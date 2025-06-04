@@ -10,7 +10,11 @@
       <div class="row">
         <!-- الصورة -->
         <div class="col-md-6 text-center mb-4 mb-md-0">
-
+          {% if product.image %}
+            <img src="{{ product.image.url }}" class="img-fluid rounded shadow" alt="{{ product.name }}" style="max-height: 350px;">
+          {% else %}
+            <p class="text-danger">لا توجد صورة متاحة لهذا المنتج.</p>
+          {% endif %}
         </div>
 
         <!-- التفاصيل -->
@@ -34,9 +38,8 @@
               </a>
             </div>
           </div>
-
         </div>
-      </div>
+      </div> <!-- نهاية row -->
 
     </div>
   </div>

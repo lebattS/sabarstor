@@ -25,7 +25,11 @@
       {% for product in products %}
       <div class="col-md-4 mb-4">
         <div class="card h-100">
-          <img src="{{ product.image.url }}" class="card-img-top" style="height: 200px; object-fit: cover;">
+          {% if product.image %}
+  <img src="{{ product.image.url }}" class="card-img-top" style="height: 200px; object-fit: cover;">
+{% else %}
+  <img src="{% static 'images/default.jpg' %}" class="card-img-top" style="height: 200px; object-fit: cover;">
+{% endif %}
           <div class="card-body">
             <h5 class="card-title">
               <a href="{% url 'product_detail' slug=product.slug %}" class="text-decoration-none">{{ product.name }}</a>
