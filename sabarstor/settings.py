@@ -2,7 +2,9 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 from django.contrib.messages import constants as messages
-
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 # Load .env variables
 load_dotenv()
 
@@ -24,6 +26,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts',
     'store',
+    'cloudinary_storage'
+    'cloudinary'
 ]
 
 AUTH_USER_MODEL = 'accounts.CustomUser'
@@ -98,6 +102,14 @@ MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 # Default primary key
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.getenv('CLOUD_NAME'),
+    'API_KEY': os.getenv('API_KEY'),
+    'API_SECRET': os.getenv('API_SECRET'),
+}
 
 # Login paths
 LOGIN_URL = '/accounts/login/'
