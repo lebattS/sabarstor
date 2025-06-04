@@ -1,1 +1,1 @@
-web: gunicorn sabarstor.wsgi
+web: gunicorn sabarstor.wsgi:application
