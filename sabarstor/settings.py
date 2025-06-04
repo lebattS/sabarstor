@@ -5,6 +5,7 @@ from django.contrib.messages import constants as messages
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
+import cloudinary_storage
 # Load .env variables
 load_dotenv()
 
