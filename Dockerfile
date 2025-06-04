@@ -16,6 +16,8 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 # تشغيل التهيئة وجمع الملفات الثابتة
+RUN pip install django-cloudinary-storage cloudinary
+
 RUN python manage.py collectstatic --noinput
 RUN python manage.py migrate
 
