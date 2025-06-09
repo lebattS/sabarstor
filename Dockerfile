@@ -24,4 +24,4 @@ RUN python manage.py migrate
 EXPOSE 8000
 
 # الأمر الافتراضي لتشغيل الخادم
-CMD ["gunicorn", "sabarstor.wsgi:application", "--bind", "0.0.0.0:8000"]
+CMD ["sh", "-c", "python manage.py migrate && gunicorn sabarstor.wsgi:application --bind 0.0.0.0:8000"]
