@@ -136,4 +136,14 @@ def contact(request):
 
     return render(request, 'contact.html', {'form': form})
 
+import logging
+logger = logging.getLogger(_name_)
+logger.info("✅ Product list page was viewed.")
+logger.error("❌ Something went wrong when retrieving products.")
+
+def home(request):
+    logger.info("🏠 Home page viewed.")
+
+def products_by_category(request, category_slug):
+    logger.info(f"📂 Category page viewed: {category_slug}")
 
