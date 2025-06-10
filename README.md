@@ -84,6 +84,21 @@ python manage.py migrate
 python manage.py runserver
 
 
+
+---
+
+
+## Docker Setup
+
+To build  and run the project using Docker and docker-compose
+
+bash
+docker-compose up --build
+
+Docker will build the image, apply migrations and run the app.
+
+
+
 ---
 
 ## ✅ Testing
