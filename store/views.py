@@ -137,7 +137,7 @@ def contact(request):
     return render(request, 'contact.html', {'form': form})
 
 import logging
-logger = logging.getLogger(_name_)
+logger = logging.getLogger(__name__)
 logger.info("✅ Product list page was viewed.")
 logger.error("❌ Something went wrong when retrieving products.")
 

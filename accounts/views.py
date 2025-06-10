@@ -28,7 +28,7 @@ def register(request):
     return render(request, 'registration/register.html', {'form': form})
 
 import logging
-logger = logging.getLogger(_name_)
+logger = logging.getLogger(__name__)
 
 def contact(request):
     logger.info("📨 Contact page accessed.")
