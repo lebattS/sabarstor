@@ -10,7 +10,8 @@ def home(request):
     products = None  # لا نعرض المنتجات افتراضياً
     return render(request, 'store/home.html', {
         'products': products,
-        'categories': categories
+        'categories': categories,
+        'selected_category': None
     })
 
 # عرض المنتجات حسب الفئة
