@@ -144,7 +144,20 @@ logger.error("❌ Something went wrong when retrieving products.")
 
 def home(request):
     logger.info("🏠 Home page viewed.")
-
+    categories = Category.objects.all()
+    products = None
+    return render(request, 'store/home.html', {
+        'products': products,
+        'categories': categories,
+        'selected_category': None
+    })
 def products_by_category(request, category_slug):
     logger.info(f"📂 Category page viewed: {category_slug}")
-
+    category = get_object_or_404(Category, slug=category_slug)
+    products = Product.objects.filter(category=category)
+    categories = Category.objects.all()
+    return render(request, 'store/home.html', {
+        'products': products,
+        'categories': categories,
+        'selected_category': category
+    })
