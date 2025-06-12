@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import CustomUserCreationForm
 import logging
 
-logger = logging.getLogger(_name_)
+logger = logging.getLogger(__name__)
 
 # ✅ لوحة التحكم (تتطلب تسجيل دخول)
 @login_required
