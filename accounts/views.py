@@ -5,7 +5,6 @@ from .forms import CustomUserCreationForm
 import logging
 
 logger = logging.getLogger(__name__)
-
 # ✅ لوحة التحكم (تتطلب تسجيل دخول)
 @login_required
 def dashboard(request):
