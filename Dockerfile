@@ -12,7 +12,6 @@ COPY . .
 # إعداد متغيرات البيئة
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
-
 # جمع الملفات الثابتة وتشغيل الترحيلات
 RUN python manage.py collectstatic --noinput
 RUN python manage.py migrate

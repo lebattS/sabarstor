@@ -12,7 +12,7 @@ class AuthTests(TestCase):
             'password1': 'testpass123',
             'password2': 'testpass123'
         })
-        self.assertEqual(response.status_code, 302)  # redirect to login
+        self.assertEqual(response.status_code, 302)
         self.assertTrue(CustomUser.objects.filter(username='newuser').exists())
 
     def test_user_can_login(self):
