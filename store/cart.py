@@ -1,3 +1,5 @@
+from .models import Product
+
 class Cart:
     def __init__(self, request):
         self.session = request.session
@@ -28,7 +30,6 @@ class Cart:
         self.save()
 
     def __iter__(self):
-        from .models import Product
         product_ids = self.cart.keys()
         products = Product.objects.filter(id__in=product_ids)
         for product in products:
