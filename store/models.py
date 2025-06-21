@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils.text import slugify
 from django.contrib.auth import get_user_model
+from cloudinary.models import CloudinaryField
+
 
 # نموذج الفئة
 class Category(models.Model):
@@ -14,7 +16,7 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
-from cloudinary.models import CloudinaryField
+
 # نموذج المنتج
 class Product(models.Model):
     name = models.CharField(max_length=200)
@@ -59,9 +61,6 @@ class OrderItem(models.Model):
         return f"{self.quantity} × {self.product.name}"
 
 # store/models.py
-
-from django.db import models
-
 class ContactMessage(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()

@@ -3,6 +3,10 @@ from .models import Product, Category, Order, OrderItem
 from .cart import Cart
 from .forms import CheckoutForm
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect
+from django.contrib import messages
+import logging
+from .forms import ContactForm
 
 # الصفحة الرئيسية - عرض الفئات فقط
 def home(request):
@@ -101,7 +105,7 @@ def order_success(request, order_id):
     return render(request, 'store/order_success.html', {'order_id': order_id})
 def about(request):
     return render(request, 'store/about.html')
-from .forms import ContactForm
+
 
 def contact(request):
     if request.method == 'POST':
@@ -113,14 +117,6 @@ def contact(request):
         form = ContactForm()
     return render(request, 'store/templates/contact.html', {'form': form})
 
-
-# store/views.py
-from django.contrib import messages
-from .forms import ContactForm
-
-from django.shortcuts import render, redirect
-from django.contrib import messages
-from .forms import ContactForm
 
 def contact(request):
     if request.method == 'POST':
@@ -137,7 +133,7 @@ def contact(request):
 
     return render(request, 'contact.html', {'form': form})
 
-import logging
+
 logger = logging.getLogger(__name__)
 logger.info("✅ Product list page was viewed.")
 logger.error("❌ Something went wrong when retrieving products.")

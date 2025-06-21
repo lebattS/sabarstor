@@ -1,3 +1,4 @@
+from .models import ContactMessage
 from django import forms
 
 class CheckoutForm(forms.Form):
@@ -5,7 +6,7 @@ class CheckoutForm(forms.Form):
     address = forms.CharField(label='العنوان', widget=forms.Textarea)
     phone = forms.CharField(label='رقم الهاتف', max_length=20)
 
-from django import forms
+
 
 class ContactForm(forms.Form):
     name = forms.CharField(max_length=100, label='الاسم')
@@ -13,10 +14,6 @@ class ContactForm(forms.Form):
     message = forms.CharField(widget=forms.Textarea, label='الرسالة')
 
 # store/forms.py
-
-from django import forms
-from .models import ContactMessage
-
 class ContactForm(forms.ModelForm):
     class Meta:
         model = ContactMessage

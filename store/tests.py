@@ -17,5 +17,5 @@ class UserRegistrationTests(TestCase):
             'password1': 'SuperSecure123!',
             'password2': 'SuperSecure123!',
         })
-        self.assertEqual(response.status_code, 302)  # Redirect to login or dashboard
+        self.assertEqual(response.status_code, 302)
         self.assertTrue(User.objects.filter(username='newuser').exists())
